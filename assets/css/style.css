@@ -26,7 +26,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin-top: 50px;
 }
 
 /* Logo */
@@ -212,6 +211,10 @@ input::-webkit-inner-spin-button {
 }
 
 @media screen and (max-width: 825px) {
+  body {
+    margin-top: 50px;
+  }
+
   /* Tip calculator */
 
   .calculator {
