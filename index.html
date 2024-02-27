@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <title>Tip calculator app</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Logo -->
+    <img class="logo" src="assets/images/logo.svg" alt="Spliter logo" />
+  
+    <!-- Tip calculator -->
+    <div class="calculator">
+
+      <!-- Left part -->
+      <section class="left">
+
+        <!-- Bill -->
+        <h1>Bill</h1>
+        <form class="bill amount">
+          <label for="quantity"></label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            placeholder="0"
+            required
+          />
+        </form>
+
+        <!-- Tip -->
+        <div class="tip">
+          <h1>Select Tip %</h1>
+          <div class="tip-percentage">
+            <button class="cinq">5%</button>
+            <button class="dix">10%</button>
+            <button class="quinze">15%</button>
+            <button class="vingt-cinq">25%</button>
+            <button class="cinquante">50%</button>
+            <form class="tip-custom">
+              <label for="quantity"></label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                placeholder="Custom"
+                required
+              />
+            </form>
+          </div>
+        </div>
+
+        <!-- Number of People -->
+        <div class="people">
+        <h1>Number of People</h1>
+        <form class="people amount">
+          <label for="quantity"></label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            placeholder="0"
+            required
+          />
+        </div>
+      </section>
+
+      <!-- Right part -->
+      <section class="right">
+        <div class="total">
+          <div class="total-text">
+            <h1>Tip Amount</h1>
+            <p>/ person</p>
+          </div>
+            <p class="tip-person">0,00</p>
+        </div>
+        <div class="total">
+          <div class="total-text">
+            <h1>Total</h1>
+            <p>/ person</p>
+          </div>
+            <p class="total-person">0,00</p>
+        </div>
+        <button type="submit">Reset</button>
+      </section>
+    </div>
+  </body>
+</html>

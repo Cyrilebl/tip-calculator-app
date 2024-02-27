@@ -1,0 +1,271 @@
+:root {
+  /* background-color */
+  --background: hsl(185, 41%, 84%);
+  --dark-background: hsl(183, 100%, 15%);
+
+  /* text-color */
+  --LightGrayishCyan: hsl(189, 41%, 97%);
+  --GrayishCyan: hsl(184, 14%, 56%);
+  --DarkGrayishCyan: hsl(186, 14%, 43%);
+
+  --strongCyan: hsl(172, 67%, 45%);
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-top: 50px;
+}
+
+/* Logo */
+
+.logo {
+  margin-bottom: 40px;
+}
+
+/* Tip calculator */
+
+.calculator {
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+/* Left part */
+
+.left {
+  padding: 10px 40px;
+}
+
+.left h1 {
+  font-size: 0.9em;
+  color: var(--DarkGrayishCyan);
+  margin-bottom: 5px;
+}
+
+.amount input {
+  font-family: "Space Mono", monospace;
+  color: var(--dark-background);
+  font-size: 1.2em;
+  text-align: end;
+  padding-right: 10px;
+  background-color: var(--LightGrayishCyan);
+  width: 320px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+}
+
+.amount input::placeholder {
+  color: var(--GrayishCyan);
+  opacity: 0.8;
+}
+
+.amount input:focus {
+  outline: none;
+  border: 2px solid var(--strongCyan);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Bill */
+
+.bill input {
+  background-image: url(../images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position: 15px center;
+}
+
+/* Tip */
+
+.tip h1 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.tip-percentage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.tip-percentage button {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--white);
+  background-color: var(--dark-background);
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.tip-percentage button:hover {
+  background-color: var(--background);
+}
+
+.tip-percentage button:focus {
+  background-color: var(--strongCyan);
+}
+
+.tip input {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--dark-background);
+  text-align: center;
+  background-color: var(--LightGrayishCyan);
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+}
+
+.tip-custom input:focus {
+  outline: none;
+  border: 2px solid var(--strongCyan);
+}
+
+.tip-custom input::placeholder {
+  color: var(--dark-background);
+  opacity: 0.7;
+}
+
+/* Number of people */
+
+.people h1 {
+  margin-top: 40px;
+}
+
+.people input {
+  background-image: url(../images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position: 15px center;
+}
+
+/* Right part */
+
+.right {
+  background-color: var(--dark-background);
+  border-radius: 10px;
+  padding: 40px 30px 30px 30px;
+  margin: 25px;
+}
+
+.right h1 {
+  font-size: 0.9em;
+  color: var(--white);
+}
+
+.total-text p {
+  font-size: 0.7em;
+  color: var(--GrayishCyan);
+}
+
+.right button {
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: var(--dark-background);
+  background-color: var(--background);
+  opacity: 0.2;
+  text-align: center;
+  width: 280px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 90px;
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tip-person,
+.total-person {
+  color: var(--strongCyan);
+  margin-right: 10px;
+  font-size: 2.2em;
+}
+
+@media screen and (max-width: 825px) {
+  /* Tip calculator */
+
+  .calculator {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  /* Left part */
+
+  .left {
+    padding: 30px 30px 10px 30px;
+  }
+
+  .amount input {
+    width: 290px;
+  }
+
+  /* Tip */
+
+  .tip h1 {
+    margin-top: 30px;
+  }
+
+  .tip-percentage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tip-percentage button {
+    width: 140px;
+  }
+
+  .tip input {
+    width: 140px;
+  }
+
+  /* Number of people */
+
+  .people h1 {
+    margin-top: 30px;
+  }
+
+  /* Right part */
+
+  .right {
+    padding: 30px 20px 20px 20px;
+    margin: 20px;
+  }
+
+  .right button {
+    width: 250px;
+    margin-top: 15px;
+  }
+
+  .total {
+    margin-bottom: 10px;
+  }
+}
