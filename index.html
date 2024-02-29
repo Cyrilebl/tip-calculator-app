@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A simple tip calculator app to calculate tips based on the bill amount and tip percentage.">
-    <meta name="keywords" content="tip calculator, bill, tip percentage, calculate tips">
+    <meta
+      name="description"
+      content="A simple tip calculator app to calculate tips based on the bill amount and tip percentage."
+    />
+    <meta
+      name="keywords"
+      content="tip calculator, bill, tip percentage, calculate tips"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,25 +30,25 @@
   <body>
     <!-- Logo -->
     <img class="logo" src="assets/images/logo.svg" alt="Spliter logo" />
-  
+
     <!-- Tip calculator -->
     <div class="calculator">
-
       <!-- Left part -->
       <section class="left">
-
         <!-- Bill -->
-        <h1>Bill</h1>
-        <form class="bill amount">
-          <label for="quantity"></label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            placeholder="0"
-            required
-          />
-        </form>
+        <div class="bill">
+          <h1>Bill <span class="bill-error">Can't be zero</span></h1>
+          <form class="bill amount">
+            <label for="bill"></label>
+            <input
+              type="number"
+              id="bill"
+              name="bill"
+              placeholder="0"
+              required
+            />
+          </form>
+        </div>
 
         <!-- Tip -->
         <div class="tip">
@@ -54,11 +60,11 @@
             <button class="vingt-cinq">25%</button>
             <button class="cinquante">50%</button>
             <form class="tip-custom">
-              <label for="quantity"></label>
+              <label for="custom"></label>
               <input
                 type="number"
-                id="quantity"
-                name="quantity"
+                id="custom"
+                name="custom"
                 placeholder="Custom"
                 required
               />
@@ -68,16 +74,19 @@
 
         <!-- Number of People -->
         <div class="people">
-        <h1>Number of People</h1>
-        <form class="people amount">
-          <label for="quantity"></label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            placeholder="0"
-            required
-          />
+          <h1>
+            Number of People <span class="people-error">Can't be zero</span>
+          </h1>
+          <form class="people amount">
+            <label for="people"></label>
+            <input
+              type="number"
+              id="people"
+              name="people"
+              placeholder="0"
+              required
+            />
+          </form>
         </div>
       </section>
 
@@ -88,14 +97,14 @@
             <h1>Tip Amount</h1>
             <p>/ person</p>
           </div>
-            <p class="tip-person">0,00</p>
+          <p class="tip-person">0.00</p>
         </div>
         <div class="total">
           <div class="total-text">
             <h1>Total</h1>
             <p>/ person</p>
           </div>
-            <p class="total-person">0,00</p>
+          <p class="total-person">0.00</p>
         </div>
         <button type="submit">Reset</button>
       </section>

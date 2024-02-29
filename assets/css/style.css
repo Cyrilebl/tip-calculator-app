@@ -10,6 +10,7 @@
 
   --strongCyan: hsl(172, 67%, 45%);
   --white: hsl(0, 0%, 100%);
+  --red: hsl(354, 100%, 66%);
 }
 
 * {
@@ -87,7 +88,19 @@ input::-webkit-inner-spin-button {
 
 /* Bill */
 
-.bill input {
+.bill h1 {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bill-error {
+  display: none;
+  color: var(--red);
+  font-size: 0.9em;
+}
+
+#bill {
   background-image: url(../images/icon-dollar.svg);
   background-repeat: no-repeat;
   background-position: 15px center;
@@ -153,9 +166,17 @@ input::-webkit-inner-spin-button {
 
 .people h1 {
   margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.people input {
+.people-error {
+  display: none;
+  color: var(--red);
+  font-size: 0.9em;
+}
+
+#people {
   background-image: url(../images/icon-person.svg);
   background-repeat: no-repeat;
   background-position: 15px center;
