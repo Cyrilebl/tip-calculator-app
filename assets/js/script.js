@@ -1,6 +1,6 @@
 // Change reset button aspect
 function resetButtonAspect() {
-  if (bill.value !== "" || people.value !== "") {
+  if (bill.value !== "" || people.value !== "" || tipCustom.value !== "") {
     reset.style.background = "hsl(172, 67%, 45%)";
     reset.style.opacity = "1";
   } else {
@@ -11,8 +11,8 @@ function resetButtonAspect() {
 
 // Error if input === "0"
 function inputAspect() {
-  let errorBill = document.querySelector(".bill-error");
-  let errorPeople = document.querySelector(".people-error");
+  const errorBill = document.querySelector(".bill-error");
+  const errorPeople = document.querySelector(".people-error");
 
   if (bill.value === "0") {
     bill.style.border = "2px solid red";
@@ -31,48 +31,65 @@ function inputAspect() {
   }
 }
 
-function calculateTipPerPerson() {
-  let totalTip = parseFloat(totalAmount.textContent);
-  let numberOfPeople = parseInt(people.value);
+// Configuration reset button
+function resetAll() {
+  reset.style.background = "";
+  reset.style.opacity = "";
 
-  let calculatedTipPerPerson = totalTip / numberOfPeople;
+  bill.value = "";
+  people.value = "";
+  tipCustom.value = "";
+  tipAmount.textContent = "0.00";
+  totalAmount.textContent = "0.00";
+  tipButtons.forEach(function (button) {
+    button.style.background = "";
+  });
+}
+
+// Function to calculate total tip for a clicked button
+function calculateTotalTipBtn(clickedButton) {
+  const tipPercentage = parseFloat(clickedButton.textContent) / 100;
+  const calculatedTip = bill.value * tipPercentage;
+
+  totalAmount.textContent = calculatedTip.toFixed(2);
+}
+
+// Function to calculate total tip for a custom value
+function calculateTotalTipCustom(inputCustom) {
+  const customTipPercentage = parseFloat(inputCustom.value) / 100;
+  const calculatedTip = bill.value * customTipPercentage;
+
+  totalAmount.textContent = calculatedTip.toFixed(2);
+}
+
+// Function to calculate tip per person
+function calculateTipPerPerson() {
+  const totalTip = parseFloat(totalAmount.textContent);
+  const numberOfPeople = parseInt(people.value);
+
+  const calculatedTipPerPerson = totalTip / numberOfPeople;
 
   tipAmount.textContent = calculatedTipPerPerson.toFixed(2);
 }
 
-function calculateTotalTipBtn(clickedButton) {
-  let tipPercentage = parseFloat(clickedButton.textContent) / 100;
-  let calculatedTip = bill.value * tipPercentage;
-
-  totalAmount.textContent = calculatedTip.toFixed(2);
-
-  calculateTipPerPerson();
-}
-
-function calculateTotalTipCustom(tipCustom) {
-  let customTipPercentage = parseFloat(tipCustom.value) / 100;
-  let calculatedTip = bill.value * customTipPercentage;
-
-  totalAmount.textContent = calculatedTip.toFixed(2);
-
-  calculateTipPerPerson();
-}
-
 // Left input
-let bill = document.getElementById("bill");
-let people = document.getElementById("people");
+const bill = document.getElementById("bill");
+const people = document.getElementById("people");
 
 // Reset button
-let reset = document.querySelector(".right button");
+const reset = document.querySelector(".right button");
 
 // Tip button
-let tipButtons = document.querySelectorAll(".tip-percentage button");
+const tipButtons = document.querySelectorAll(".tip-percentage button");
 // Tip custom
-let tipCustom = document.getElementById("custom");
+const tipCustom = document.getElementById("custom");
 
 // Total tip
-let tipAmount = document.querySelector(".tip-person");
-let totalAmount = document.querySelector(".total-person");
+const tipAmount = document.querySelector(".tip-person");
+const totalAmount = document.querySelector(".total-person");
+
+// Configuration reset button
+reset.addEventListener("click", resetAll);
 
 bill.addEventListener("input", () => {
   bill.value = bill.value.slice(0, 6);
@@ -86,28 +103,28 @@ people.addEventListener("input", () => {
 
   resetButtonAspect();
   inputAspect();
+  calculateTipPerPerson();
 });
 
 tipButtons.forEach(function (tipButton) {
   tipButton.addEventListener("click", function () {
+    tipButtons.forEach(function (button) {
+      button.style.background = "";
+    });
+    tipButton.style.background = "hsl(172, 67%, 45%)";
     tipCustom.value = "";
     calculateTotalTipBtn(this);
   });
 });
 
-tipCustom.addEventListener("input", function () {
-  tipCustom.value = tipCustom.value.slice(0, 2);
-
-  calculateTotalTipCustom(this);
+tipCustom.addEventListener("click", () => {
+  tipButtons.forEach(function (button) {
+    button.style.background = "";
+  });
 });
 
-// Configuration reset button
-reset.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  bill.value = "";
-  people.value = "";
-  tipCustom.value = "";
-  tipAmount.textContent = "0.00";
-  totalAmount.textContent = "0.00";
+tipCustom.addEventListener("input", function () {
+  tipCustom.value = tipCustom.value.slice(0, 2);
+  resetButtonAspect();
+  calculateTotalTipCustom(this);
 });
