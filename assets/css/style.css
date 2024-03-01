@@ -136,10 +136,6 @@ input::-webkit-inner-spin-button {
   background-color: var(--background);
 }
 
-.tip-percentage button:focus {
-  background-color: var(--strongCyan);
-}
-
 .tip input {
   font-weight: 700;
   font-size: 1.2em;
