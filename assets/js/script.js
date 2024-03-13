@@ -92,7 +92,10 @@ const totalAmount = document.querySelector(".total-person");
 reset.addEventListener("click", resetAll);
 
 bill.addEventListener("input", () => {
-  bill.value = bill.value.slice(0, 6);
+  let billValue = bill.value;
+
+  billValue = billValue.replace(/[^0-9.]/g, "");
+  billValue = billValue.slice(0, 10);
 
   resetButtonAspect();
   inputAspect();
